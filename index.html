@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click to Earn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      touch-action: manipulation;
+      font-family: "Roboto", sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #counter {
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .button {
+      width: 200px;
+      height: 200px;
+      border: 4px solid #cc0000;
+      background-color: #cc0000;
+      border-radius: 40px;
+      box-shadow: -6px -20px 35px #ffcccc, -6px -10px 15px #ffcccc,
+                  -20px 0px 30px #ffcccc, 6px 20px 25px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: 0.13s ease-in-out;
+    }
+
+    .button:active {
+      box-shadow: none;
+    }
+
+    .button__content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 40px;
+      box-shadow: inset 0px -8px 0px #aa0000, 0px -8px 0px #cc0000;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="counter">Clicks: 0</div>
+
+<button class="button" onclick="handleClick()">
+  <div class="button__content">CLICK</div>
+</button>
+
+<script>
+  let clicks = 0;
+
+  function handleClick() {
+    clicks++;
+    document.getElementById("counter").textContent = "Clicks: " + clicks;
+
+    if (clicks % 50 === 0) {
+      alert("Ad: This is your monetized ad!");
+    }
+  }
+</script>
+
+</body>
+</html>
